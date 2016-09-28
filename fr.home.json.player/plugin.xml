@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               label="JSon Player">
+            <command
+                  commandId="fr.home.json.player.command.openJSonFile"
+                  label="Start JSon FIle"
+                  style="push">
+            </command>
+            <command
+                  commandId="fr.home.json.player.command.configureJSonFile"
+                  label="Configuration"
+                  style="push">
+            </command>
+            <command
+                  commandId="fr.home.json.player.command.viewPlayers"
+                  label="Liste des players"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="fr.home.json.player.command.openJSonFile"
+            name="JSonFile Player">
+      </command>
+      <command
+            id="fr.home.json.player.command.configureJSonFile"
+            name="Configuration">
+      </command>
+      <command
+            id="fr.home.json.player.command.viewPlayers"
+            name="View Players">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fr.home.json.player.ui.handler.OpenJSonFileHandler"
+            commandId="fr.home.json.player.command.openJSonFile">
+      </handler>
+      <handler
+            class="fr.home.json.player.ui.handler.ConfigurationHandler"
+            commandId="fr.home.json.player.command.configureJSonFile">
+      </handler>
+      <handler
+            class="fr.home.json.player.ui.handler.ViewPlayersHandler"
+            commandId="fr.home.json.player.command.viewPlayers">
+      </handler>
+   </extension>
+
+
+</plugin>
