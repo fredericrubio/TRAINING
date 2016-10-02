@@ -3,12 +3,15 @@ package fr.home.json.player.ui.handler;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 
+import fr.home.json.player.JSonPlayerActivator;
 import fr.home.json.player.core.JSonArrayFilePlayer;
 import fr.home.json.player.core.JSonPlayerFactory;
+import fr.home.json.player.preferences.JSonPlayerPreferences;
 
 public class OpenJSonFileHandler extends AbstractHandler {
 
@@ -25,7 +28,8 @@ public class OpenJSonFileHandler extends AbstractHandler {
         
 		String selected = fd.open();
 		
-		JSonPlayerFactory.startNewPlayer(selected);
+		IPreferenceStore preferenceStore = JSonPlayerActivator.getDefault().getPreferenceStore();
+		JSonPlayerFactory.startNewPlayer(selected, preferenceStore.getInt((JSonPlayerPreferences.PERIOD)));
 		
 		return null;
 		

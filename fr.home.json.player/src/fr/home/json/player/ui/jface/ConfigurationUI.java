@@ -1,4 +1,4 @@
-package f.home.json.player.ui.jface;
+package fr.home.json.player.ui.jface;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;

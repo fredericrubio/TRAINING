@@ -5,7 +5,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.swt.widgets.Display;
 
-import f.home.json.player.ui.jface.JSonPlayerViewer;
+import fr.home.json.player.ui.jface.JSonPlayerViewer;
 
 public class ViewPlayersHandler extends AbstractHandler {
 

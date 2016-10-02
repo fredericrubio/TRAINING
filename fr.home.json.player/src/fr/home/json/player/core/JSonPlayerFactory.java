@@ -3,6 +3,8 @@ package fr.home.json.player.core;
 import java.util.LinkedList;
 import java.util.List;
 
+import fr.home.json.player.JSonPlayerActivator;
+
 public class JSonPlayerFactory {
 
 	static JSonPlayerFactory instance;
@@ -16,7 +18,13 @@ public class JSonPlayerFactory {
 		players = new LinkedList<JSonPlayer>();
 	}
 	
-	static public boolean startNewPlayer(String pFileName) {
+	/**
+	 * 
+	 * @param pFileName
+	 * @param pPeriod
+	 * @return
+	 */
+	static public boolean startNewPlayer(String pFileName, int pPeriod) {
 	
 		JSonArrayFilePlayer lPlayer = new JSonArrayFilePlayer(pFileName);
 		
@@ -24,7 +32,8 @@ public class JSonPlayerFactory {
 			
 			instance.players.add(lPlayer);
 			
-			lPlayer.setPeriod(1000);
+			JSonPlayerActivator.getDefault().getPreferenceStore().addPropertyChangeListener(lPlayer);
+			lPlayer.setPeriod(pPeriod);
 			lPlayer.start();
 			
 			return true;

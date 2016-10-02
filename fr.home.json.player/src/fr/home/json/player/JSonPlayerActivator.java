@@ -6,18 +6,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class JSonPlayerActivator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "Test-Contribution"; //$NON-NLS-1$
 
 	// The shared instance
-	private static Activator plugin;
+	private static JSonPlayerActivator plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public Activator() {
+	public JSonPlayerActivator() {
 	}
 
 	/*
@@ -43,7 +43,7 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static JSonPlayerActivator getDefault() {
 		return plugin;
 	}
 

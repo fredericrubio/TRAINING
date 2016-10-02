@@ -1,22 +1,28 @@
 package fr.home.json.player.core;
 
-public abstract class JSonPlayer {
+import org.eclipse.jface.util.IPropertyChangeListener;
+
+public abstract class JSonPlayer implements IPropertyChangeListener {
 
 	int	period = 1000;;
 	String	fileName;
-	boolean playing = false;
-	
-	protected JSonPlayer(String pFileName) {
-		fileName = pFileName;
-	}
-	
+	protected boolean playing = false;
+
 	public abstract boolean start();
 	
 	public abstract void stop();
 	
 	public abstract boolean isValid();
 
-	public boolean isPlaying() {
+	public synchronized void setPlaying(boolean playing) {
+			this.playing = playing;
+	}
+
+	protected JSonPlayer(String pFileName) {
+		fileName = pFileName;
+	}
+	
+	public synchronized boolean isPlaying() {
 		return playing;
 	}
 	

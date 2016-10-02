@@ -7,7 +7,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 
-import f.home.json.player.ui.jface.ConfigurationUI;
+import fr.home.json.player.ui.jface.ConfigurationUI;
 
 
 public class ConfigurationHandler extends AbstractHandler {

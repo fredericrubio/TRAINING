@@ -2,9 +2,10 @@ package fr.home.json.player.core;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import org.eclipse.jface.util.PropertyChangeEvent;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -41,14 +42,15 @@ public class JSonArrayFilePlayer extends JSonPlayer {
 		if (! isValid() )
 			return false;
 		
+		setPlaying(true);
+		
 		executor.execute(new Runnable() {
 			@Override
 			public void run() {
 
 				try {
 
-//					while (currentItem <= arrayOfObjects.size()) {
-					while (! playing) {
+					while (isPlaying()) {
 						
 						Thread.sleep(period);
 						
@@ -67,7 +69,7 @@ public class JSonArrayFilePlayer extends JSonPlayer {
 	
 	public void stop() {
 		
-		playing= true;
+		setPlaying(false);
 		executor.shutdown();
 		
 	}
@@ -93,6 +95,15 @@ public class JSonArrayFilePlayer extends JSonPlayer {
 	public boolean isValid() {
 		
 		return (fileReader != null);
+		
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent event) {
+		
+		System.out.println(event.getProperty());
+		System.out.println(event.getOldValue());
+		System.out.println(event.getNewValue());
 		
 	}
 

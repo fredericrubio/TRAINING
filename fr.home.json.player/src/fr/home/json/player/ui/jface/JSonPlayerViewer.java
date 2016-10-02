@@ -1,4 +1,4 @@
-package f.home.json.player.ui.jface;
+package fr.home.json.player.ui.jface;
 
 import java.awt.Image;
 import java.text.SimpleDateFormat;

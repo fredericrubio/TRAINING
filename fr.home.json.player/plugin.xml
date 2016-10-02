@@ -14,11 +14,6 @@
                   style="push">
             </command>
             <command
-                  commandId="fr.home.json.player.command.configureJSonFile"
-                  label="Configuration"
-                  style="push">
-            </command>
-            <command
                   commandId="fr.home.json.player.command.viewPlayers"
                   label="Liste des players"
                   style="push">
@@ -33,10 +28,6 @@
             name="JSonFile Player">
       </command>
       <command
-            id="fr.home.json.player.command.configureJSonFile"
-            name="Configuration">
-      </command>
-      <command
             id="fr.home.json.player.command.viewPlayers"
             name="View Players">
       </command>
@@ -48,13 +39,23 @@
             commandId="fr.home.json.player.command.openJSonFile">
       </handler>
       <handler
-            class="fr.home.json.player.ui.handler.ConfigurationHandler"
-            commandId="fr.home.json.player.command.configureJSonFile">
-      </handler>
-      <handler
             class="fr.home.json.player.ui.handler.ViewPlayersHandler"
             commandId="fr.home.json.player.command.viewPlayers">
       </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.home.json.player.preferences.JSonPlayerPreferences"
+            id="fr.home.json.player.preferences"
+            name="JSon Player Preferences">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.home.json.player.preferences.PreferencesInitializer">
+      </initializer>
    </extension>
 
 
